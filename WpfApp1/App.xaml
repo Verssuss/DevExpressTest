@@ -1,0 +1,32 @@
+﻿<Application x:Class="WpfApp1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp1"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate x:Key="SuccessMessage">
+            <Grid>
+                <Rectangle Fill="#5DAF50" Opacity="0.7" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Margin="10" Height="30" CornerRadius="50" BorderThickness="1" BorderBrush="White">
+                        <Viewbox Height="20" Width="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Fill="White" >
+                                <Path.Data>
+                                    M127.526,15.294 45.665,78.216 0.863,42.861 0,59.255 44.479,113.117 128.411,31.666Z
+                                </Path.Data>
+                            </Path>
+                        </Viewbox>
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="0 10 0 10"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Foreground="White" Text="Успешно!" />
+                        <TextBlock Foreground="White" TextWrapping="Wrap" Text="Вы успешно выбрали ключевое нарушение" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

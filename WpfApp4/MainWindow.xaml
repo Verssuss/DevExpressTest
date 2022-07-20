@@ -1,0 +1,101 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#434750">
+        <ItemsControl HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding Items}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Panel.ZIndex" Value="{Binding ZIndex}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate  >
+                    <Grid Name="parent"  Height="50" Cursor="Hand" Width="200"  >
+                        <Grid.Style >
+                            <Style TargetType="Grid">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DropShadow}" Value="True">
+                                        <Setter Property="Effect" >
+                                            <Setter.Value>
+                                                <DropShadowEffect Color="Black"  RenderingBias="Performance" Direction="-100" Opacity="0.3" BlurRadius="150" ShadowDepth="100"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <Grid.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <ColorAnimation Storyboard.TargetName="label" Storyboard.TargetProperty="(Label.Foreground).(SolidColorBrush.Color)" To="White" Duration="0:0:0.200"></ColorAnimation>
+                                        <ColorAnimation Storyboard.TargetName="one" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" To="#2982b9" Duration="0:0:0.200"></ColorAnimation>
+                                        <ColorAnimation Storyboard.TargetName="two" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" To="#2982b9" Duration="0:0:0.200"></ColorAnimation>
+                                        <ColorAnimation Storyboard.TargetName="three" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" To="#2982b9" Duration="0:0:0.200"></ColorAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="parent" Storyboard.TargetProperty="RenderTransform.Children[1].X" To="-40" Duration="0:0:0.200"></DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="parent" Storyboard.TargetProperty="RenderTransform.Children[1].Y" To="10" Duration="0:0:0.200"></DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <EventTrigger.Actions >
+                                    <BeginStoryboard  >
+                                        <Storyboard >
+                                            <ColorAnimation Storyboard.TargetName="label" Storyboard.TargetProperty="(Label.Foreground).(SolidColorBrush.Color)" To="White" Duration="0:0:0.200"></ColorAnimation>
+                                            <ColorAnimation Storyboard.TargetName="one" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" To="#3e3f46" Duration="0:0:0.200"></ColorAnimation>
+                                            <ColorAnimation Storyboard.TargetName="two" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" To="#35383e" Duration="0:0:0.200"></ColorAnimation>
+                                            <ColorAnimation Storyboard.TargetName="three" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" To="#2e3133" Duration="0:0:0.200"></ColorAnimation>
+                                            <DoubleAnimation Storyboard.TargetName="parent" Storyboard.TargetProperty="RenderTransform.Children[1].X" To="0" Duration="0:0:0.200"></DoubleAnimation>
+                                            <DoubleAnimation Storyboard.TargetName="parent" Storyboard.TargetProperty="RenderTransform.Children[1].Y" To="0" Duration="0:0:0.200"></DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+
+
+                        </Grid.Triggers>
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <SkewTransform AngleY="-15"/>
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+
+                        <Grid Name="one"  Background="#3e3f46"  >
+                            <Label Foreground="White" Name="label" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Name}"/>
+                        </Grid>
+
+                        <Grid Name="two" Width="200" Height="50" Background="#35383e" >
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <TranslateTransform Y="-50" X="0" />
+                                    <SkewTransform AngleX="45" />
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                        </Grid>
+
+                        <Grid Name="three" Width="50" Background="#2e3133"  RenderTransformOrigin="1 1" HorizontalAlignment="Left">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <TranslateTransform Y="50" X="-50" ></TranslateTransform>
+                                    <SkewTransform AngleY="45" />
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                        </Grid>
+
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>

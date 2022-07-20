@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="WpfApp1.MessageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1"
+             mc:Ignorable="d" 
+             x:Name="message"
+             Width="300" Height="Auto" >
+
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="SuccessMessage" DataType="{x:Type local:MyMessage}" >
+            <Grid >
+                <Border CornerRadius="10" Background="#5DAF50" Opacity="0.7" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Margin="10" Height="30" CornerRadius="50" BorderThickness="1" BorderBrush="White">
+                        <Viewbox Height="20" Width="20">
+                            <Path Fill="White" >
+                                <Path.Data>
+                                    M127.526,15.294 45.665,78.216 0.863,42.861 0,59.255 44.479,113.117 128.411,31.666Z
+                                </Path.Data>
+                            </Path>
+                        </Viewbox>
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="0 10 0 10"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Foreground="White" Text="Успешно!" />
+                        <TextBlock Foreground="White" TextWrapping="Wrap" Text="{Binding Message}" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="WarningMessage" DataType="{x:Type local:MyMessage}">
+            <Grid >
+                <Border CornerRadius="10" Background="#ffAF50" Opacity="0.7" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Margin="10" Height="30" CornerRadius="50" BorderThickness="1" BorderBrush="White">
+                        <Viewbox Height="20" Width="20" >
+                            <Path Fill="White" >
+                                <Path.Data >
+                                    M1.031 0a1 1 0 00-1 1v6a1 1 0 102 0V1a1 1 0 00-1-1zm0 11.969a1 1 0 100-2 1 1 0 000 2z
+                                </Path.Data>
+                            </Path>
+                        </Viewbox>
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="0 10 0 10"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Foreground="White" Text="Предупреждение!" />
+                        <TextBlock Foreground="White" TextWrapping="Wrap" Text="{Binding Message}" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ErrorMessage" DataType="{x:Type local:MyMessage}">
+            <Grid>
+                <Border CornerRadius="10" Background="#ed4830" Opacity="0.7" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Margin="10" Height="30" CornerRadius="50" BorderThickness="1" BorderBrush="White">
+                        <Viewbox Height="20" Width="20" Margin="-4 -4 0 0" >
+                            <Path Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                <Path.Data >
+                                    M4.11 2.697L2.698 4.11 6.586 8l-3.89 3.89 1.415 1.413L8 9.414l3.89 3.89 1.413-1.415L9.414 8l3.89-3.89-1.415-1.413L8 6.586l-3.89-3.89z
+                                </Path.Data>
+                            </Path>
+                        </Viewbox>
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="0 10 0 10"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Foreground="White" Text="Ошибка!" />
+                        <TextBlock Foreground="White" TextWrapping="Wrap" Text="{Binding Message}" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+       
+    </UserControl.Resources>
+
+    <ContentControl Margin="3" Content="{Binding}" d:ContentTemplate="{StaticResource ErrorMessage}" >
+            <ContentControl.Style>
+                <Style TargetType="ContentControl" >
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding TypeMessage}" Value="Error">
+                            <Setter Property="ContentTemplate" Value="{StaticResource ErrorMessage}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding TypeMessage}" Value="Warning">
+                            <Setter Property="ContentTemplate" Value="{StaticResource WarningMessage}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding TypeMessage}" Value="Success">
+                            <Setter Property="ContentTemplate" Value="{StaticResource SuccessMessage}" />
+                        </DataTrigger>
+                </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+</UserControl>

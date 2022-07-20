@@ -1,0 +1,42 @@
+﻿[
+  {
+    "$type": "WpfApp3.Models.Administrator, WpfApp3",
+    "Login": "admin",
+    "Password": "ADecZKux68rUXTERXCja2QIycKy3ezzTgL4OMvbDVhtdxBUp9lidk7LGLkLhSXmYdA==",
+    "Id": "e6cfaff5-3e10-4306-b326-9408c91b203f",
+    "FullName": "Tracy",
+    "Position": "Administrator",
+    "Salary": 599969.0,
+    "Experience": 27
+  },
+  {
+    "$type": "WpfApp3.Models.Administrator, WpfApp3",
+    "Login": "emnlmnnvsg",
+    "Password": "AMXMSqqYgQt8KvHbOBp5+Lj4IqMp3O00vvKbUjOgy1uqbj101lKe7ioiQ79mTGPV3A==",
+    "Id": "3e1b7e8f-c85d-4ff1-aaa0-763c453c9dd3",
+    "FullName": "Beecham",
+    "Position": "Administrator",
+    "Salary": 596762.0,
+    "Experience": 36
+  },
+  {
+    "$type": "WpfApp3.Models.Administrator, WpfApp3",
+    "Login": "wnouweohwb",
+    "Password": "AA5lPIbZ/OjVqYtnHaFL0jsLMJ98WzCry6/ncKv/l6x0EZxOiEmGeBN9rmob5m3kRQ==",
+    "Id": "ba606494-45ff-47dc-b722-b106892518f3",
+    "FullName": "Ericsson",
+    "Position": "Programmer",
+    "Salary": 596666.0,
+    "Experience": 23
+  },
+  {
+    "$type": "WpfApp3.Models.Administrator, WpfApp3",
+    "Login": "aqhyjnnhyp",
+    "Password": "AIvxUw5MZbmzv/Wu2wVSFa8reo/kKkqMq9OP8xXibSZE1AZcNS9bsHrcOBoIyAWD5w==",
+    "Id": "d4170fb6-7232-4eb2-a31b-6147f882135b",
+    "FullName": "Oliver",
+    "Position": "Programmer",
+    "Salary": 596516.0,
+    "Experience": 36
+  }
+]

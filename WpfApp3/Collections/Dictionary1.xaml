@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:col="clr-namespace:WpfApp3.Collections"
+                    xmlns:enums="clr-namespace:WpfApp3.Enums"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <col:LanguageCollection x:Key="LanguageCollection">
+        <col:Language SourceImage="../Assets/flags/russia.png" Lang="Russian"  />
+        <col:Language SourceImage="../Assets/Flags/usa.png" Lang="English"  />
+        <col:Language SourceImage="../Assets/Flags/germany.png" Lang="Deutsch" />
+    </col:LanguageCollection>
+</ResourceDictionary>
